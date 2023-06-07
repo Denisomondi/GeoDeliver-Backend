@@ -1,6 +1,5 @@
-puts "🌱 Seeding spices..."
-
 # seeds.rb
+puts "🌱 Seeding deliveries..."
 
 # Seed Users
 user1 = User.create(name: 'John Doe', email: 'john@example.com', password: 'password', address: '123 Main St', phone_number: '123-456-7890')

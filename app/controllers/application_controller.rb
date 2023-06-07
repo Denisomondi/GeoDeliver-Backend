@@ -1,5 +1,8 @@
 require_relative './users_controller'
 require_relative './orders_controller'
+require_relative './order_items_controller'
+require_relative './products_controller'
+
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
@@ -11,7 +14,7 @@ class ApplicationController < Sinatra::Base
    # Mount other controllers here
    use UsersController
    use OrdersController
-  #  use ProductsController
-  #  use OrderItemsController
+   use ProductsController
+   use OrderItemsController
 
 end
