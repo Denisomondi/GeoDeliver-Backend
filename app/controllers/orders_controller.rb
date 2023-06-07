@@ -1,15 +1,10 @@
-  # controllers/orders_controller.rb
-  class OrdersController < Sinatra::Base
-    get '/orders' do
-      orders = Order.all
-      orders.to_json
+class OrdersController < Sinatra::Base
+    # ...
+  
+    get '/orders/:id' do
+      order = Order.find(params[:id])
+      order.to_json(include: { order_items: { include: :product } })
     end
   
-    post '/orders' do
-      order = Order.create(params)
-      order.to_json
-    end
-  
-    # Implement other CRUD actions as needed
+    # ...
   end
-  
