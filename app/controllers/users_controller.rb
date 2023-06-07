@@ -1,15 +1,10 @@
-# controllers/users_controller.rb
 class UsersController < Sinatra::Base
-    get '/users' do
-      users = User.all
-      users.to_json
+    # ...
+  
+    get '/users/:id' do
+      user = User.find(params[:id])
+      user.to_json(include: :orders)
     end
   
-    post '/users' do
-      user = User.create(params)
-      user.to_json
-    end
-  
-    # Implement other CRUD actions as needed
+    # ...
   end
-  
