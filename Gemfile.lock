@@ -22,6 +22,7 @@ GEM
     database_cleaner-core (2.0.1)
     diff-lcs (1.5.0)
     eventmachine (1.2.7)
+    ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -32,9 +33,12 @@ GEM
     minitest (5.18.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.9)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    puma (6.3.0)
+      nio4r (~> 2.0)
     rack (2.2.7)
     rack-contrib (2.3.0)
       rack (~> 2.0)
@@ -74,7 +78,9 @@ GEM
     sinatra-activerecord (2.0.26)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sinatra-cross_origin (0.4.0)
     sqlite3 (1.6.3-x64-mingw-ucrt)
+    sqlite3 (1.6.3-x86_64-linux)
     thin (1.8.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -85,11 +91,13 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   activerecord
   database_cleaner
   pry
+  puma
   rack-contrib
   rack-cors
   rack-test
@@ -100,6 +108,7 @@ DEPENDENCIES
   rspec-json_expectations
   sinatra
   sinatra-activerecord
+  sinatra-cross_origin
   sqlite3
   thin
 

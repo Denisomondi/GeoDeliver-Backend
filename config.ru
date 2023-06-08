@@ -1,6 +1,8 @@
 require_relative "./config/environment"
 require_relative './app/models/user'
-# Allow CORS (Cross-Origin Resource Sharing) requests
+require_relative './app.rb'
+require 'puma'
+
 use Rack::Cors do
   allow do
     origins '*'

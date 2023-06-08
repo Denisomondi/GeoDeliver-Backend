@@ -24,6 +24,9 @@ gem "activerecord"
 # https://github.com/sinatra-activerecord/sinatra-activerecord
 gem "sinatra-activerecord"
 
+gem 'sinatra-cross_origin'
+
+
 # Run common tasks from the command line
 # https://github.com/ruby/rake
 gem "rake"
@@ -37,6 +40,9 @@ gem "require_all"
 # These gems will only be used when we are running the application locally
 group :development do
   gem "pry"
+
+  gem 'puma'
+
 
   # Automatically reload when there are changes
   # https://github.com/alexch/rerun
