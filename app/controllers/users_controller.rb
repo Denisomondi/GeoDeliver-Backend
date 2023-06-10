@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'json'
 require 'sinatra/cross_origin'
+require 'securerandom'
 
 class UsersController < Sinatra::Base
   configure do
@@ -9,7 +10,7 @@ class UsersController < Sinatra::Base
 
   before do
     response.headers['Access-Control-Allow-Origin'] = '*' # Allow requests from any origin
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE' # Allow specific HTTP methods
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE' # Allow specific HTTP methods
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization' # Allow specific headers
     response.headers['Access-Control-Allow-Credentials'] = 'true' # Allow credentials (if needed)
   end
@@ -44,7 +45,7 @@ class UsersController < Sinatra::Base
       ]
     }
   ]
-  
+
   # GET /users
   get '/users' do
     name = params[:name]
@@ -75,14 +76,36 @@ class UsersController < Sinatra::Base
     end
   end
 
+  # PATCH /users/:id
+  patch '/users/:id' do |id|
+    data = JSON.parse(request.body.read)
+    name = data['name']
+    password = data['password']
+
+    user = find_user_by_id(id)
+
+    if user
+      user[:name] = name if name
+      user[:password] = password if password
+      user.to_json
+    else
+      status 404
+      { error: 'User not found' }.to_json
+    end
+  end
+
   private
 
   def find_user_by_credentials(name, password)
     SAMPLE_DATA.find { |user| user[:name] == name && user[:password] == password }
   end
 
+  def find_user_by_id(id)
+    SAMPLE_DATA.find { |user| user[:id] == id.to_i }
+  end
+
   def create_user(name, password)
-    id = SAMPLE_DATA.map { |user| user[:id] }.max + 1
+    id = SecureRandom.uuid
     new_user = { id: id, name: name, password: password, orders: [] }
     SAMPLE_DATA << new_user
     new_user
