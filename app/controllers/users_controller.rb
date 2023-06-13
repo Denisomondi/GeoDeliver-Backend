@@ -76,6 +76,19 @@ class UsersController < Sinatra::Base
     end
   end
 
+   # DELETE /users/:id
+   delete '/users/:id' do |id|
+    user = find_user_by_id(id)
+
+    if user
+      SAMPLE_DATA.delete(user)
+      status 204
+    else
+      status 404
+      { error: 'User not found' }.to_json
+    end
+  end
+
   # PATCH /users/:id
   patch '/users/:id' do |id|
     data = JSON.parse(request.body.read)

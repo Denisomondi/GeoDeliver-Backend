@@ -1,10 +1,12 @@
 require_relative './app/controllers/users_controller'
-require_relative './app/controllers/orders_controller'
 require_relative './app/controllers/order_items_controller'
 require_relative './app/controllers/products_controller'
+require_relative './app/controllers/orders_controller'
 require 'sinatra/base'
 require 'sinatra'
 require 'sinatra/cross_origin'
+require 'active_record'
+
 
 class ApplicationController < Sinatra::Base
   configure do
@@ -27,9 +29,9 @@ class ApplicationController < Sinatra::Base
 
   # Mount other controllers here
   use UsersController
-  use OrdersController
   use ProductsController
   use OrderItemsController
+  use OrdersController
 end
 
 # Run the ApplicationController as the main Sinatra application

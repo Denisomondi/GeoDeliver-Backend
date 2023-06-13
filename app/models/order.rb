@@ -1,15 +1,26 @@
-# models/order.rb
-class Order < ActiveRecord::Base
-    belongs_to :user
-    has_many :order_items
-  
-    # Validation example: ensure total_amount and status are present
-    validates :total_amount, presence: true
-    validates :status, presence: true
-  
-    # You can define instance or class methods as needed
-    def calculate_total_amount
-      order_items.sum('quantity * unit_price')
-    end
+require 'active_record'
+require 'securerandom'
+
+class Order
+  attr_accessor :id, :user_id, :total_amount, :created_at
+
+  def initialize(attributes = {})
+    @id = attributes[:id] || SecureRandom.uuid
+    @user_id = attributes[:user_id]
+    @total_amount = attributes[:total_amount]
+    @created_at = attributes[:created_at] || Time.now
   end
-  
+
+  def self.create(order_params)
+    order = Order.new(order_params)
+    order.save ? order : nil
+  end
+
+  def self.all
+    @orders ||= []
+  end
+
+  def save
+    self.class.all << self
+  end
+end
