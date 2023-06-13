@@ -1,41 +1,36 @@
-# Delivery System API
+# Sinatra Application README
 
-The Delivery System API is a backend application that provides an API for managing delivery orders. It allows users to create orders, add products to orders, and track the status of their orders. The API is built using Ruby with the Sinatra framework and utilizes a PostgreSQL database.
+This repository contains a Sinatra application that serves as a backend server for handling API requests and managing various resources. The application utilizes controllers to handle different routes and performs CRUD operations on users, orders, order items, and products.
 
-## Features
+## Prerequisites
 
-- User management: Create, update, and delete user accounts.
-- Order management: Create, update, and delete orders.
-- Product management: Create, update, and delete products.
-- Order item management: Add products to orders and manage quantities.
-- Order status tracking: Track the status of orders (e.g., pending, in progress, delivered).
+Make sure you have the following installed:
 
-## Technologies Used
-
-- Ruby: The programming language used to develop the API.
-- Sinatra: A lightweight web framework used to build the API routes.
-- ActiveRecord: An ORM (Object-Relational Mapping) library for database interactions.
-- PostgreSQL: The chosen database management system.
-- JSON: The data format used for API requests and responses.
+- Ruby
+- Bundler (Ruby Gem Manager)
 
 ## Getting Started
 
-To set up the Delivery System API locally, follow these steps:
+To get started with the Sinatra application, follow these steps:
 
-1. Clone the repository:
+1. Clone this repository to your local machine using `git clone`.
+2. Navigate to the project directory.
+3. Install the dependencies by running the command `bundle install`.
+4. Start the server with `ruby app.rb`.
+5. Open your browser and visit `http://localhost:4567` to see the application.
 
    ```bash
    git clone https://github.com/your/repository.git
    ```
 
-2. Install the necessary dependencies:
+The project structure is organized as follows:
 
    ```bash
    cd repository-directory
    bundle install
    ```
 
-3. Set up the database:
+## Functionality
 
    ```bash
    rake db:create
@@ -43,7 +38,7 @@ To set up the Delivery System API locally, follow these steps:
    rake db:seed
    ```
 
-4. Start the server:
+## Customization and Extension
 
    ```bash
    rackup config.ru
@@ -53,7 +48,7 @@ To set up the Delivery System API locally, follow these steps:
    ruby app.rb
    ```
 
-5. The API will be accessible at `http://localhost:9292`. You can use tools like cURL or Postman to send requests to the API endpoints.
+To deploy the Sinatra application, you can use various hosting platforms such as Heroku, AWS, or DigitalOcean. Follow the deployment instructions provided by your chosen hosting platform to deploy the application and ensure it is accessible to the frontend.
 
 ## Using Rerun for Automatic Server Restart
 
