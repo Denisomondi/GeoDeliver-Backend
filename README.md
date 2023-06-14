@@ -57,16 +57,7 @@ The project structure is organized as follows:
 │   ├── order.rb
 │   ├── order_item.rb
 │   └── product.rb
-├── views
-│   ├── index.erb
-│   ├── users
-│   ├── orders
-│   ├── order_items
-│   └── products
-├── public
-│   ├── css
-│   ├── js
-│   └── images
+
 ├── db
 │   ├── migrate
 │   └── seed.rb
