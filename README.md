@@ -1,4 +1,4 @@
-# Sinatra Application README
+# Geo-Deliver Backend README
 
 This repository contains a Sinatra application that serves as a backend server for handling API requests and managing various resources. The application utilizes controllers to handle different routes and performs CRUD operations on users, orders, order items, and products.
 
