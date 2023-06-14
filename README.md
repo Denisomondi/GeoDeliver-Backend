@@ -13,40 +13,95 @@ Make sure you have the following installed:
 
 To get started with the Sinatra application, follow these steps:
 
-1. Clone this repository to your local machine using `git clone`.
-2. Navigate to the project directory.
-3. Install the dependencies by running the command `bundle install`.
-4. Start the server with `ruby app.rb`.
-5. Open your browser and visit `http://localhost:4567` to see the application.
+1. Clone this repository to your local machine using the following command:
 
    ```bash
    git clone https://github.com/your/repository.git
    ```
 
-The project structure is organized as follows:
+2. Navigate to the project directory:
 
    ```bash
    cd repository-directory
+   ```
+
+3. Install the dependencies by running the command:
+
+   ```bash
    bundle install
    ```
 
-## Functionality
-
-   ```bash
-   rake db:create
-   rake db:migrate
-   rake db:seed
-   ```
-
-## Customization and Extension
-
-   ```bash
-   rackup config.ru
-   ```
+4. Start the server with the command:
 
    ```bash
    ruby app.rb
    ```
+
+5. Open your browser and visit `http://localhost:4567` to see the application.
+
+## Project Structure
+
+The project structure is organized as follows:
+
+```
+.
+├── app.rb
+├── config.ru
+├── controllers
+│   ├── users_controller.rb
+│   ├── orders_controller.rb
+│   ├── order_items_controller.rb
+│   └── products_controller.rb
+├── models
+│   ├── user.rb
+│   ├── order.rb
+│   ├── order_item.rb
+│   └── product.rb
+├── views
+│   ├── index.erb
+│   ├── users
+│   ├── orders
+│   ├── order_items
+│   └── products
+├── public
+│   ├── css
+│   ├── js
+│   └── images
+├── db
+│   ├── migrate
+│   └── seed.rb
+└── README.md
+```
+
+## Functionality
+
+Before using the application, make sure to set up the database by running the following commands:
+
+```bash
+rake db:create
+rake db:migrate
+rake db:seed
+```
+
+This will create the necessary database tables and populate them with seed data.
+
+## Customization and Extension
+
+If you need to customize or extend the application, you can modify the controllers, models, views, and public assets according to your requirements. Additionally, you can configure additional routes in the `config.ru` file.
+
+To run the application using `rackup`, use the following command:
+
+```bash
+rackup config.ru
+```
+
+To run the application using `ruby`, use the following command:
+
+```bash
+ruby app.rb
+```
+
+## Deployment
 
 To deploy the Sinatra application, you can use various hosting platforms such as Heroku, AWS, or DigitalOcean. Follow the deployment instructions provided by your chosen hosting platform to deploy the application and ensure it is accessible to the frontend.
 
@@ -70,7 +125,9 @@ To streamline your development process and automatically restart the Sinatra bac
    rerun 'ruby app.rb'
    ```
 
-   This command will start the server and monitor your application files for changes. Whenever a file is modified, `rerun` will automatically restart the server, allowing you to see the changes immediately.
+   This command will start the server and monitor your application files for changes. Whenever a file is modified, `rerun` will automatically restart the server, allowing you to see the changes
+
+ immediately.
 
 4. Open a web browser and navigate to `http://localhost:4567` to see the running application.
 
@@ -82,8 +139,8 @@ The API endpoints and their usage are documented in the [API documentation](/doc
 
 ## Contributing
 
-Contributions to the Delivery System API are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+Contributions to the Sinatra Application are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
 ## License
 
-The Delivery System API is open-source and released under the [MIT License](LICENSE).
+The Sinatra Application is open-source and released under the [MIT License](LICENSE).
